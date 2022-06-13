@@ -32,21 +32,21 @@ namespace RowsInFieldMethod.Functions
             else
             {
                 double theta = Point1.Longitude - Point2.Longitude;
-                double distance = Math.Sin(deg2rad(Point1.Latitude)) * Math.Sin(deg2rad(Point2.Latitude)) + Math.Cos(deg2rad(Point1.Latitude)) * Math.Cos(deg2rad(Point2.Latitude)) * Math.Cos(deg2rad(theta));
+                double distance = Math.Sin(Deg2rad(Point1.Latitude)) * Math.Sin(Deg2rad(Point2.Latitude)) + Math.Cos(Deg2rad(Point1.Latitude)) * Math.Cos(Deg2rad(Point2.Latitude)) * Math.Cos(Deg2rad(theta));
                 distance = Math.Acos(distance);
-                distance = rad2deg(distance);
+                distance = Rad2deg(distance);
                 distance = distance * 60 * 1.1515;
-                distance = distance * 1.609344;
+                distance *= 1.609344;
                 distance = Math.Round(distance, 2);
                 return (distance);
             }
         }
 
-        private double deg2rad(double deg)
+        private static double Deg2rad(double deg)
         {
             return (deg * Math.PI / 180.0);
         }
-        private double rad2deg(double rad)
+        private static double Rad2deg(double rad)
         {
             return (rad / Math.PI * 180.0);
 
